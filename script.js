@@ -43,20 +43,26 @@ hiddenElements.forEach((el) => {
     el.style.transition = 'all 0.8s ease-out';
     observer.observe(el);
 });
+
 // --- Lógica de Cookies (LGPD) ---
-const cookieBanner = document.getElementById('cookie-banner');
-const acceptBtn = document.getElementById('accept-cookies');
+document.addEventListener("DOMContentLoaded", function() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
 
-// Verifica se já aceitou
-if (!localStorage.getItem('cookiesAccepted')) {
-    // Se não aceitou, mostra o banner com um pequeno delay
-    setTimeout(() => {
-        cookieBanner.style.display = 'block';
-    }, 2000);
-}
+    // Verifica se os elementos existem para evitar erros
+    if (cookieBanner && acceptBtn) {
+        // Verifica se já aceitou
+        if (!localStorage.getItem('cookiesAccepted')) {
+            // Mostra o banner após 2 segundos
+            setTimeout(() => {
+                cookieBanner.style.display = 'block';
+            }, 2000);
+        }
 
-// Ao clicar em aceitar
-acceptBtn.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    cookieBanner.style.display = 'none';
+        // Ao clicar em aceitar
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.display = 'none';
+        });
+    }
 });
