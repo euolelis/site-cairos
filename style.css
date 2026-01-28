@@ -621,3 +621,81 @@ footer {
         font-size: 25px;
     }
 }
+/* --- LGPD Cookie Banner --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    z-index: 9999; /* Fica acima de tudo, menos do botão do whats se quiser */
+    display: none; /* Começa oculto, JS ativa */
+    border-top: 4px solid var(--primary-blue);
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cookie-content p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    flex: 1;
+    min-width: 300px;
+}
+
+.btn-cookie {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-cookie:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* --- Créditos do Desenvolvedor --- */
+.developer-credit {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.developer-credit a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.developer-credit a:hover {
+    text-decoration: underline;
+}
+
+/* Ajuste Mobile para o Banner */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Levanta o botão do WhatsApp para não ficar em cima do banner de cookies */
+    .whatsapp-widget {
+        bottom: 100px; 
+        transition: bottom 0.3s;
+    }
+    
+    /* Quando o banner sumir, o whats volta pro lugar (via JS se quiser, ou deixa fixo) */
+}

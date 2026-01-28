@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cairoslogistica.vercel.app/sitemap.xml
